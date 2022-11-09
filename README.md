@@ -12,27 +12,64 @@ Muhammad Rolanov Wowor - 5025201017 <br/>
 
     auto eth0
     iface eth0 inet dhcp
-      
+
+    auto eth1
+    iface eth1 inet static
+	address 192.203.1.1
+	netmask 255.255.255.0
+
+    auto eth2
+    iface eth2 inet static
+	address 192.203.2.1
+	netmask 255.255.255.0
+
+    auto eth3
+    iface eth3 inet static
+	address 192.203.3.1
+	netmask 255.255.255.0
 
 <ul>
 <li>Konfigurasi SSS & Garden
 </ul>
 
+    auto eth0
+    iface eth0 inet dhcp
+
 <ul>
 <li>Konfigurasi WISE
 </ul>
+
+    auto eth0
+    iface eth0 inet static
+	address 192.203.2.2
+	netmask 255.255.255.0
+	gateway 192.203.2.1
 
 <ul>
 <li>Konfigurasi BERLINT
 </ul>
 
+    auto eth0
+    iface eth0 inet static
+	address 192.203.2.3
+	netmask 255.255.255.0
+	gateway 192.203.2.1
+
 <ul>
 <li>Konfigurasi WESTALIS
 </ul>
 
+    auto eth0
+    iface eth0 inet static
+	address 192.203.2.4
+	netmask 255.255.255.0
+	gateway 192.203.2.1
+
 <ul>
 <li>Konfigurasi EDEN
 </ul>
+
+
 
 <ul>
 <li>Konfigurasi NEWSTON CASTLE
