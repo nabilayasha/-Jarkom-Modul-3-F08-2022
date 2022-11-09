@@ -4,7 +4,44 @@ Nabila Zakiyah Khansa Machrus	- 5025201139 <br/>
 Muhammad Rolanov Wowor - 5025201017 <br/>
 
 ## Laporan Resmi Modul 3 F08 2022
-![](images/ss.png)
+![](img/ss.png)
+
+<ul>
+<li>Konfigurasi OSTANIA
+</ul>
+
+    auto eth0
+    iface eth0 inet dhcp
+      
+
+<ul>
+<li>Konfigurasi SSS & Garden
+</ul>
+
+<ul>
+<li>Konfigurasi WISE
+</ul>
+
+<ul>
+<li>Konfigurasi BERLINT
+</ul>
+
+<ul>
+<li>Konfigurasi WESTALIS
+</ul>
+
+<ul>
+<li>Konfigurasi EDEN
+</ul>
+
+<ul>
+<li>Konfigurasi NEWSTON CASTLE
+</ul>
+
+<ul>
+<li>Konfigurasi KEMONO PARK 
+</ul>
+
 ### **Soal 1**
 Semua client yang ada HARUS menggunakan konfigurasi IP dari DHCP Server
 
