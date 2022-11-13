@@ -121,3 +121,28 @@ client Proxy agar pertukaran informasi dapat terjamin keamanannya, juga untuk me
 kebocoran data
 
 ### **Jawaban**
+
+### **Soal 8**
+Client hanya dapat mengakses internet diluar (selain) hari & jam kerja (senin-jumat 08.00 - 1 7.00) dan hari libur (dapat mengakses 24 jam penuh)
+
+### **Jawaban**
+
+### **Soal 9**
+Adapun pada hari dan jam kerja sesuai nomor (1 ), client hanya dapat mengakses domain loid-work.com dan franky-work.com (IP tujuan domain dibebaskan)
+
+### **Jawaban**
+
+### **Soal 10**
+Saat akses internet dibuka, client dilarang untuk mengakses web tanpa HTTPS. (Contoh web HTTP: http://example.com)
+
+### **Jawaban**
+
+### **Soal 11**
+Agar menghemat penggunaan, akses internet dibatasi dengan kecepatan maksimum 1 28 Kbps pada setiap host (Kbps = kilobit per second; lakukan pengecekan pada tiap host, ketika 2 host akses internet pada saat bersamaan, keduanya mendapatkan speed maksimal yaitu 1 28 Kbps)
+
+### **Jawaban**
+
+### **Soal 12**
+Setelah diterapkan, ternyata peraturan nomor (4) mengganggu produktifitas saat hari kerja, dengan demikian pembatasan kecepatan hanya diberlakukan untuk pengaksesan internet pada hari libur
+
+### **Jawaban**
