@@ -192,7 +192,7 @@ waktu maksimal yang dialokasikan untuk peminjaman alamat IP selama 11 5 menit.
 
 	nano /etc/bind/named.conf.options
 	forwarders {
-    	192.202.2.1;
+    	192.203.2.1;
 	}; 
 
 	// dnssec-validation auto;
@@ -201,7 +201,7 @@ waktu maksimal yang dialokasikan untuk peminjaman alamat IP selama 11 5 menit.
 
 ---Client
 
-	ping 192.202.2.2
+	ping 192.203.2.2
 	ping google.com
 
 ### **Soal 6**
@@ -214,22 +214,22 @@ ul>
 </ul>
 
 	nano /etc/dhcp/dhcpd.conf
-	subnet 192.202.1.0 netmask 255.255.255.0 {
-  	range 192.202.1.50 192.202.1.88;
-  	range 192.202.1.120 192.202.1.155;
-  	option routers 192.202.1.1;
-  	option broadcast-address 192.202.1.255;
-  	option domain-name-servers 192.202.2.2;
+	subnet 192.203.1.0 netmask 255.255.255.0 {
+  	range 192.203.1.50 192.203.1.88;
+  	range 192.203.1.120 192.203.1.155;
+  	option routers 192.203.1.1;
+  	option broadcast-address 192.203.1.255;
+  	option domain-name-servers 192.203.2.2;
   	default-lease-time 300;
   	max-lease-time 6900;
 	}
 	
-	subnet 192.202.3.0 netmask 255.255.255.0 {
-  	range 192.202.3.10 192.202.3.30;
-  	range 192.202.3.60 192.202.3.85;
-  	option routers 192.202.3.1;
-  	option broadcast-address 192.202.3.255;
-  	option domain-name-servers 192.202.2.2;
+	subnet 192.203.3.0 netmask 255.255.255.0 {
+  	range 192.203.3.10 192.203.3.30;
+  	range 192.203.3.60 192.203.3.85;
+  	option routers 192.203.3.1;
+  	option broadcast-address 192.203.3.255;
+  	option domain-name-servers 192.203.2.2;
   	default-lease-time 600;
   	max-lease-time 6900;
 	}
@@ -247,7 +247,7 @@ ul>
 	nano /etc/dhcp/dhcpd.conf
 	host Eden {
     	hardware ethernet f6:09:9e:66:0d:94;
-    	fixed-address 192.202.3.13;
+    	fixed-address 192.203.3.13;
 	}
 
 ### **Soal 8**
