@@ -145,8 +145,8 @@ dan [prefix IP].3.60 - [prefix IP].3.85
 	}
 	
 	subnet 10.8.1.0 netmask 255.255.255.0 {
-  	range 192.203.1.50 192.202.1.88;
-  	range 192.203.1.120 192.202.1.155;
+  	range 192.203.1.50 192.203.1.88;
+  	range 192.203.1.120 192.203.1.155;
   	option routers 192.203.1.1;
   	option broadcast-address 192.203.1.255;
   	option domain-name-servers 192.203.2.2;
@@ -168,8 +168,8 @@ DNS tersebut
 
 	nano /etc/dhcp/dhcpd.conf
 	subnet 192.203.3.0 netmask 255.255.255.0 {
-  	range 192.203.3.10 192.202.3.30;
-  	range 192.203.3.60 192.202.3.85;
+  	range 192.203.3.10 192.203.3.30;
+  	range 192.203.3.60 192.203.3.85;
   	option routers 192.203.3.1;
   	option broadcast-address 192.203.3.255;
   	option domain-name-servers 192.203.2.2;
