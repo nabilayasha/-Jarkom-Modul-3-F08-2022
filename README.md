@@ -186,12 +186,53 @@ selama 5 menit sedangkan pada client yang melalui Switch3 selama 1 0 menit. Deng
 waktu maksimal yang dialokasikan untuk peminjaman alamat IP selama 11 5 menit. 
 
 ### **Jawaban**
+<ul>
+<li> WISE
+</ul>
+
+	nano /etc/bind/named.conf.options
+	forwarders {
+    	192.202.2.1;
+	}; 
+
+	// dnssec-validation auto;
+	allow-query{any;};
+	service bind9 restart
+
+---Client
+
+	ping 192.202.2.2
+	ping google.com
 
 ### **Soal 6**
 Loid dan Franky berencana menjadikan Eden sebagai server untuk pertukaran informasi dengan
 alamat IP yang tetap dengan IP [prefix IP].3.13 
 
 ### **Jawaban**
+ul>
+<li> WESTALIS
+</ul>
+
+	nano /etc/dhcp/dhcpd.conf
+	subnet 192.202.1.0 netmask 255.255.255.0 {
+  	range 192.202.1.50 192.202.1.88;
+  	range 192.202.1.120 192.202.1.155;
+  	option routers 192.202.1.1;
+  	option broadcast-address 192.202.1.255;
+  	option domain-name-servers 192.202.2.2;
+  	default-lease-time 300;
+  	max-lease-time 6900;
+	}
+	
+	subnet 192.202.3.0 netmask 255.255.255.0 {
+  	range 192.202.3.10 192.202.3.30;
+  	range 192.202.3.60 192.202.3.85;
+  	option routers 192.202.3.1;
+  	option broadcast-address 192.202.3.255;
+  	option domain-name-servers 192.202.2.2;
+  	default-lease-time 600;
+  	max-lease-time 6900;
+	}
 
 ### **Soal 7**
 SSS, Garden, dan Eden digunakan sebagai
@@ -199,6 +240,15 @@ client Proxy agar pertukaran informasi dapat terjamin keamanannya, juga untuk me
 kebocoran data
 
 ### **Jawaban**
+ul>
+<li> WESTALIS
+</ul>
+
+	nano /etc/dhcp/dhcpd.conf
+	host Eden {
+    	hardware ethernet f6:09:9e:66:0d:94;
+    	fixed-address 192.202.3.13;
+	}
 
 ### **Soal 8**
 Client hanya dapat mengakses internet diluar (selain) hari & jam kerja (senin-jumat 08.00 - 1 7.00) dan hari libur (dapat mengakses 24 jam penuh)
