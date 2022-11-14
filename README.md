@@ -97,11 +97,11 @@ Muhammad Rolanov Wowor - 5025201017 <br/>
 
 
 ### **Soal 1**
-Semua client yang ada HARUS menggunakan konfigurasi IP dari DHCP Server
+WISE sebagai DNS Server, Westalis sebagai DHCP Server, Berlint sebagai Proxy Server
 
 ### **Jawaban**
 <ul>
-<li> WISE
+<li> WISE sebagai DNS server, melakukan instalasi bind
 </ul>
 
 	apt-get update
@@ -110,14 +110,14 @@ Semua client yang ada HARUS menggunakan konfigurasi IP dari DHCP Server
 	service bind9 status
 	
 <ul>
-<li> WESTALIS
+<li> WESTALIS sebagai DHCP server, melakukan instalasi isc-dhcp-server
 </ul>
 
 	apt-get update
 	apt-get install isc-dhcp-server -y
-	
+![](img/westalis_serversuccess.png)
 <ul>
-<li> BERLINT
+<li> BERLINT sebagai Proxy server, melakukan instalasi squid
 </ul>
 
 	apt-get update
@@ -126,8 +126,7 @@ Semua client yang ada HARUS menggunakan konfigurasi IP dari DHCP Server
 	service squid status
 
 ### **Soal 2**
-Client yang melalui Switch1 mendapatkan range IP dari [prefix IP].1 .50 - [prefix IP].1 .88
-dan [prefix IP].1 .1 20 - [prefix IP].1 .1 55 
+Ostania sebagai DHCP Relay 
 
 ### **Jawaban**
 <ul>
@@ -144,9 +143,9 @@ dan [prefix IP].1 .1 20 - [prefix IP].1 .1 55
 	service isc-dhcp-relay restart
 	service isc-dhcp-server status
 
+![](img/ostania_relay.png)
 ### **Soal 3**
-Client yang melalui Switch3 mendapatkan range IP dari [prefix IP].3.1 0 - [prefix IP].3.30
-dan [prefix IP].3.60 - [prefix IP].3.85 
+Client yang melalui Switch1 mendapatkan range IP dari [prefix IP].1.50 - [prefix IP].1.88 dan [prefix IP].1.120 - [prefix IP].1.155
 
 ### **Jawaban**
 <ul>
@@ -167,16 +166,15 @@ dan [prefix IP].3.60 - [prefix IP].3.85
   	option routers 192.203.1.1;
   	option broadcast-address 192.203.1.255;
   	option domain-name-servers 192.203.2.2;
-  	default-lease-time 360;
- 	 max-lease-time 7200;
+  	default-lease-time 300;
+ 	 max-lease-time 6900;
 	}
 
 	service isc-dhcp-server restart
 	service isc-dhcp-server status
 
 ### **Soal 4**
-Client mendapatkan DNS dari WISE dan client dapat terhubung dengan internet melalui
-DNS tersebut
+Client yang melalui Switch3 mendapatkan range IP dari [prefix IP].3.10 - [prefix IP].3.30 dan [prefix IP].3.60 - [prefix IP].3.85
 
 ### **Jawaban**
 <ul>
@@ -190,17 +188,15 @@ DNS tersebut
   	option routers 192.203.3.1;
   	option broadcast-address 192.203.3.255;
   	option domain-name-servers 192.203.2.2;
-  	default-lease-time 720;
-  	max-lease-time 7200;
+  	default-lease-time 600;
+  	max-lease-time 6900;
 	}
 
 	service isc-dhcp-server restart
 	service isc-dhcp-server status
 
 ### **Soal 5**
-Lama waktu DHCP server meminjamkan alamat IP kepada Client yang melalui Switch1
-selama 5 menit sedangkan pada client yang melalui Switch3 selama 1 0 menit. Dengan
-waktu maksimal yang dialokasikan untuk peminjaman alamat IP selama 11 5 menit. 
+Client mendapatkan DNS dari WISE dan client dapat terhubung dengan internet melalui DNS tersebut
 
 ### **Jawaban**
 <ul>
@@ -221,9 +217,13 @@ waktu maksimal yang dialokasikan untuk peminjaman alamat IP selama 11 5 menit.
 	ping 192.203.2.2
 	ping google.com
 
+Testing client dari switch 1: SSS<br>
+![](img/client1_test.png)
+
+Testing client dari switch 3: NewstonCastle<br>
+![](img/client3_test.png)
 ### **Soal 6**
-Loid dan Franky berencana menjadikan Eden sebagai server untuk pertukaran informasi dengan
-alamat IP yang tetap dengan IP [prefix IP].3.13 
+Lama waktu DHCP server meminjamkan alamat IP kepada Client yang melalui Switch1 selama 5 menit sedangkan pada client yang melalui Switch3 selama 10 menit. Dengan waktu maksimal yang dialokasikan untuk peminjaman alamat IP selama 115 menit. 
 
 ### **Jawaban**
 <ul>
@@ -251,12 +251,16 @@ alamat IP yang tetap dengan IP [prefix IP].3.13
   	max-lease-time 6900;
 	}
 
+hingga konfigurasi akhir dari dhcpd.conf di Westalis adalah sebagai berikut:<br>
+
+![](img/dhcpd_westalis.png)
 ### **Soal 7**
-SSS, Garden, dan Eden digunakan sebagai
-client Proxy agar pertukaran informasi dapat terjamin keamanannya, juga untuk mencegah
-kebocoran data
+Eden sebagai server untuk pertukaran informasi dengan alamat IP yang tetap dengan IP [prefix IP].3.13
 
 ### **Jawaban**
+Pertama-tama mendapatkan hardware address untuk eden dengan menggunakan command <code>ip a </code> di client Eden:
+![](img/hwaddress_eden.png)
+kemudian melakukan perubahan file <code> /etc/dhcp/dhcpd.conf</code> di Westalis
 <ul>
 <li> WESTALIS
 </ul>
@@ -267,6 +271,8 @@ kebocoran data
     	fixed-address 192.203.3.13;
 	}
 
+Kemudian restart kembali Eden, dan berhasil terhubung dengan fixed address 192.203.3.13:
+![](img/eden_fixedaddress.png)
 ### **Soal 8**
 Client hanya dapat mengakses internet diluar (selain) hari & jam kerja (senin-jumat 08.00 - 1 7.00) dan hari libur (dapat mengakses 24 jam penuh)
 
