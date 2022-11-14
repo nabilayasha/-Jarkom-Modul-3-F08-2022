@@ -69,15 +69,32 @@ Muhammad Rolanov Wowor - 5025201017 <br/>
 <li>Konfigurasi EDEN
 </ul>
 
-
+	auto eth0
+	iface eth0 inet static
+  	address 192.203.3.2
+  	netmask 255.255.255.0
+  	gateway 192.203.3.1
 
 <ul>
 <li>Konfigurasi NEWSTON CASTLE
 </ul>
 
+	auto eth0
+	iface eth0 inet static
+  	address 192.203.3.3
+  	netmask 255.255.255.0
+  	gateway 192.203.3.1
+
 <ul>
 <li>Konfigurasi KEMONO PARK 
 </ul>
+
+	auto eth0
+	iface eth0 inet static
+  	address 192.203.3.4
+  	netmask 255.255.255.0
+  	gateway 192.203.3.1
+
 
 ### **Soal 1**
 Semua client yang ada HARUS menggunakan konfigurasi IP dari DHCP Server
@@ -209,7 +226,7 @@ Loid dan Franky berencana menjadikan Eden sebagai server untuk pertukaran inform
 alamat IP yang tetap dengan IP [prefix IP].3.13 
 
 ### **Jawaban**
-ul>
+<ul>
 <li> WESTALIS
 </ul>
 
@@ -240,7 +257,7 @@ client Proxy agar pertukaran informasi dapat terjamin keamanannya, juga untuk me
 kebocoran data
 
 ### **Jawaban**
-ul>
+<ul>
 <li> WESTALIS
 </ul>
 
